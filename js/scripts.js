@@ -51,4 +51,27 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
-});
+});  
+
+document.addEventListener("DOMContentLoaded", function () {
+    const divElement = document.getElementById("vizContainer");
+    if (!divElement) return;
+  
+    const vizElement = divElement.getElementsByTagName("object")[0];
+    if (!vizElement) return;
+  
+    if (divElement.offsetWidth > 800) {
+      vizElement.style.width = "100%";
+      vizElement.style.height = divElement.offsetWidth * 0.75 + "px";
+    } else if (divElement.offsetWidth > 500) {
+      vizElement.style.width = "100%";
+      vizElement.style.height = divElement.offsetWidth * 0.75 + "px";
+    } else {
+      vizElement.style.width = "100%";
+      vizElement.style.height = "1127px";
+    }
+  
+    const scriptElement = document.createElement("script");
+    scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+  });
